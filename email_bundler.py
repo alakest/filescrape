@@ -50,7 +50,8 @@ def get_messages_by_labels(service, label_names):
     """Gets messages that have all the specified labels, searching by name."""
     try:
         # Quote each label name to handle spaces and special characters.
-        query = " ".join([f'label:"{name}"' for name in label_names])
+        # Use OR to find emails with any of the specified labels.
+        query = " OR ".join([f'label:"{name}"' for name in label_names])
         response = service.users().messages().list(userId="me", q=query).execute()
         messages = []
         if "messages" in response:
