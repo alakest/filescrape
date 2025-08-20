@@ -1,3 +1,5 @@
+# Now a spot for a scratch thing
+
 # filescrape
 Some scripts to help scrape and files out of backups
 
